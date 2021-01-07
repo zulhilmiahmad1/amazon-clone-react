@@ -5,13 +5,15 @@
   background-color: #131921;
   position: sticky;
   top: 0;
-  z-index: 1;
+  z-index: 100;
 }
 
 .header__logo {
-  width: 100px;
+  height: 40px;
+  /* width: 100px; */
   object-fit: contain;
-  margin: 18px 20px 0;
+  margin: 0 20px;
+  margin-top: 5px;
 }
 
 .header__search {
@@ -31,7 +33,7 @@
 .header__searchIcon {
   padding: 5px;
   height: 22px !important;
-  background-color: #cd9042;
+  background-color: #eb1c24;
 }
 
 .header__nav {
