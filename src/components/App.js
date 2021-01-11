@@ -5,8 +5,16 @@ import Home from "./Home";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Checkout from "./Checkout";
 import Login from "./Login";
+import Payment from "./Payment";
+import Orders from "./Orders";
 import { auth } from "../firebase";
 import { useStateValue } from "./StateProvider";
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
+
+const stripePromise = loadStripe(
+  "pk_test_51I7VidLUsLbYyVbgM9xevtgt5gHExEDKyKu69eUDcAqc9misCzCDZ6VQ6E62cCAAao92hA1N03PGp2gQjdkunmvY00qruMFq5H"
+);
 
 //BEM Naming Convention
 
@@ -42,9 +50,19 @@ function App() {
           <Route path="/login">
             <Login />
           </Route>
+          <Route path="/orders">
+            <Header />
+            <Orders />
+          </Route>
           <Route path="/checkout">
             <Header />
             <Checkout />
+          </Route>
+          <Route path="/payment">
+            <Header />
+            <Elements stripe={stripePromise}>
+              <Payment />
+            </Elements>
           </Route>
           <Route path="/">
             <Header />
